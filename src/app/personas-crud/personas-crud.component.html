@@ -1,0 +1,8 @@
+<div class="container">
+	<legend>Usuarios</legend>
+	<div class="form-inline" *ngIf="operacion_crud.es_visible">
+		<label>Nombre:</label>
+		 <input class="form-control" type="text" placeholder="Nombre Apellido" [(ngModel)]="persona_actual.nombre">
+		 
+	</div>
+</div>
