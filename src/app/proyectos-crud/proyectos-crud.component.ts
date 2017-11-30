@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../persona';
- 
+import { Proyecto } from '../proyecto';
+
 @Component({
-  selector: 'personas-crud',
-  templateUrl: './personas-crud.component.html',
-  styleUrls: ['./personas-crud.component.css']
+  selector: 'proyectos-crud',
+  templateUrl: './proyectos-crud.component.html',
+  styleUrls: ['./proyectos-crud.component.css']
 })
-export class PersonasCrudComponent implements OnInit {
-  data: Persona[];
-  current_person:Persona;
+export class ProyectosCrudComponent implements OnInit {
+  data: Proyecto[];
+  current_project:Proyecto;
   crud_operation={is_new:false,is_visible:false};
- 
   constructor() { }
 
   ngOnInit() {
-  	this.data= JSON.parse(localStorage.getItem('personas')||'[]');
-  	this.current_person=new Persona();
+  	this.data= JSON.parse(localStorage.getItem('proyectos')||'[]');
+  	this.current_project=new Proyecto();
   }
 
   new() {
-    this.current_person = new Persona();
+    this.current_project = new Proyecto();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
@@ -27,7 +26,7 @@ export class PersonasCrudComponent implements OnInit {
   edit(row) {
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = false;
-    this.current_person = row;
+    this.current_project = row;
   }
 
   delete(row) {
@@ -41,11 +40,11 @@ export class PersonasCrudComponent implements OnInit {
 
   save() {
     if (this.crud_operation.is_new) {
-      this.data.push(this.current_person);
+      this.data.push(this.current_project);
     }
     localStorage.setItem('phones', JSON.stringify(this.data));
-    this.current_person = new Persona();
+    this.current_project = new Proyecto();
     this.crud_operation.is_visible = false;
   }
-}
 
+}

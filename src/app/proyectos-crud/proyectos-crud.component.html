@@ -1,12 +1,16 @@
 <div class="container">
-  <legend>Usuarios</legend>
-  <div class="form-inline" *ngIf="crud_operation.is_visible">
+  <legend>Proyectos</legend>
+  <div class="form-group" *ngIf="crud_operation.is_visible">
     <label>Id:</label>
-    <input class="form-control" type="text" placeholder="eje:1234.." [(ngModel)]="current_person.id">
+    <input class="form-control" type="text" placeholder="eje:1234.." [(ngModel)]="current_project.id">
     <label>Nombre:</label>
-    <input class="form-control" type="text" placeholder="Nombre Apellido..." [(ngModel)]="current_person.nombre">
-    <label>Avatar:</label>
-    <input class="form-control" type="text" placeholder="img.jpg" [(ngModel)]="current_person.avatar">
+    <input class="form-control" type="text" placeholder="Las nubes..." [(ngModel)]="current_project.nombre">
+    <label>Icono:</label>
+    <input class="form-control" type="text" placeholder="img.jpg" [(ngModel)]="current_project.icono">
+      <label>Fecha inicio:</label>
+    <input class="form-control" type="text" placeholder="12/12/2017..." [(ngModel)]="current_project.fecha_inicio">
+      <label>Numero de trabajadores:</label>
+    <input class="form-control" type="text" placeholder="#..." [(ngModel)]="current_project.numero_trabajadores">
     <button class="btn btn-primary"(click)="save()">
       <i class="fa fa-floppy-o" aria-hidden="true"></i>
       Guardar 
@@ -20,7 +24,9 @@
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      <th>Avatar</th>
+      <th>Icono</th>
+      <th>Fecha de inicio</th>
+      <th>Numero de Trabajadores</th>
       <th class="text-right">
         <button class="btn btn-success" (click)="new()"><i class="fa fa-plus" aria-hidden="true"></i></button>
         <button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
@@ -29,7 +35,9 @@
     <tr *ngFor="let row of data">
       <td>{{row.id}}</td>
       <td>{{row.nombre}}</td>
-      <td>{{row.avatar}}</td>
+      <td>{{row.icono}}</td>
+      <td>{{row.fecha_inicio}}</td>
+      <td>{{row.numero_trabajadores}}</td>
       <td class="text-right">
         <div *ngIf="!row.confirm">
           <button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -42,7 +50,7 @@
       </td>
     </tr>
     <tr *ngIf="data.length == 0">
-      <td colspan="4" class="text-center">No hay datos disponibles.</td>
+      <td colspan="5" class="text-center">No hay datos disponibles.</td>
     </tr>
   </table>
 </div>
