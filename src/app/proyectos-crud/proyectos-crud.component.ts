@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Proyecto } from '../proyecto';
+import { ProyectoService } from '../proyecto.service';
 
 @Component({
   selector: 'proyectos-crud',
@@ -8,21 +9,20 @@ import { Proyecto } from '../proyecto';
 })
 export class ProyectosCrudComponent implements OnInit {
   data: Proyecto[];
-  current_project:Proyecto;
-  crud_operation={is_new:false,is_visible:false};
-  constructor() { }
+  current_project: Proyecto;
+  crud_operation = { is_new: false, is_visible: false };
+  constructor(private service: ProyectoService) { }
 
   ngOnInit() {
-  	this.data= JSON.parse(localStorage.getItem('proyectos')||'[]');
-  	this.current_project=new Proyecto();
+  	this.data = this.service.read();
+    this.current_project = new Proyecto();
   }
-
-  new() {
+new() {
     this.current_project = new Proyecto();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
-
+ 
   edit(row) {
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = false;
@@ -42,7 +42,7 @@ export class ProyectosCrudComponent implements OnInit {
     if (this.crud_operation.is_new) {
       this.data.push(this.current_project);
     }
-    localStorage.setItem('phones', JSON.stringify(this.data));
+    this.service.save(this.data);
     this.current_project = new Proyecto();
     this.crud_operation.is_visible = false;
   }

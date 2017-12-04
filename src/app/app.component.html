@@ -1,9 +1,17 @@
-<nav class="navbar navbar-inverse">
+<body>
+  <header>
+    <div id="divheader">
+    
+    <img id="headimage" src="http://kolona.co/wp-content/uploads/2017/06/cropped-LogoKolona2.png" alt="">
+    
+    </div>
+  </header>
+  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Angular Crud</a>
+    <a class="navbar-brand" href="#">Home</a>
     <ul class="nav navbar-nav">
       <li routerLinkActive="active">
-        <a routerLink="/personas">Crud Personas</a>
+        <a routerLink="/personas">Crud Usuarios</a>
       </li>
       <li routerLinkActive="active">
         <a routerLink="/proyectos">Crud Proyectos</a>
@@ -11,12 +19,24 @@
       <li routerLinkActive="active">
         <a routerLink="/tareas">Crud Tareas</a>
       </li>
+      <li routerLinkActive="active">
+        <a routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/reporteTareaPersona">Reporte Usuarios</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/reporteTareaProyecto">Reporte Proyecto</a>
+      </li>
     </ul>
   </div>
 </nav>
-<div>
-  
-</div>
+<section>
+ <a  routerLink="/informacion"></a>
+</section>
+</body>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+

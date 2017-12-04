@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{proyecto.nombre}}
+    <button class="btn-xs pull-right" routerLink="/reporteTareaProyecto"> Atrás</button>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <td>{{proyecto.id}}</td>
+      </tr>
+      <tr>
+        <th>Icono</th>
+        <td><a href="{{proyecto.icono}}"><img src="{{proyecto.icono}}" width="30" height="30"></a></td>
+      </tr>
+       <tr>
+        <th>Id</th>
+        <td>{{proyecto.id}}</td>
+      </tr>
+       <tr>
+        	<th>Fecha inicio</th>
+        	<td>{{proyecto.fecha_inicio}}</td>
+      </tr> 
+       <tr>
+        	<th>Numero trabajadores</th>
+        	<td>{{proyecto.numero_trabajadores}}</td>
+      </tr>           
+    </table>
+  </div>
+</div>

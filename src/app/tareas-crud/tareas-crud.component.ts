@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Tareas } from '../tareas';
- 
+import { Tarea } from '../tarea';
+import { TareaService } from '../tarea.service';
+
 @Component({
   selector: 'app-tareas-crud',
   templateUrl: './tareas-crud.component.html',
   styleUrls: ['./tareas-crud.component.css']
 })
 export class TareasCrudComponent implements OnInit {
- data: Tareas[];
-  current_task:Tareas;
-  crud_operation={is_new:false,is_visible:false};
- 
-  constructor() { }
+ data: Tarea[];
+  current_task: Tarea;
+  crud_operation = { is_new: false, is_visible: false };
+  constructor(private service: TareaService) { }
 
   ngOnInit() {
-  	this.data= JSON.parse(localStorage.getItem('tareas')||'[]');
-  	this.current_task=new Tareas();
+  	this.data = this.service.read();
+    this.current_task = new Tarea();
   }
-
-  new() {
-    this.current_task = new Tareas();
+ new() {
+    this.current_task = new Tarea();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
-
+ 
   edit(row) {
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = false;
@@ -43,9 +42,8 @@ export class TareasCrudComponent implements OnInit {
     if (this.crud_operation.is_new) {
       this.data.push(this.current_task);
     }
-    localStorage.setItem('phones', JSON.stringify(this.data));
-    this.current_task = new Tareas();
+    this.service.save(this.data);
+    this.current_task = new Tarea();
     this.crud_operation.is_visible = false;
   }
-
 }

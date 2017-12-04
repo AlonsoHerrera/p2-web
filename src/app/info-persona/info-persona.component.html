@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{persona.nombre}}
+    <button class="btn-xs pull-right" routerLink="/reporteTareaPersona"> Atrás</button>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>Nombre</th>
+        <td>{{persona.nombre}}</td>
+      </tr>
+      <tr>
+        <th>Avatar</th>
+        <td><a href="{{persona.avatar}}"><img src="{{persona.avatar}}" width="30" height="30"></a></td>
+      </tr>
+       <tr>
+        <th>Id</th>
+        <td>{{persona.id}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

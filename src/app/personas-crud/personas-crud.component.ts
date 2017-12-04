@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
- 
+import { Tarea } from '../tarea';
+import { PersonaService } from '../persona.service';
+
 @Component({
   selector: 'personas-crud',
   templateUrl: './personas-crud.component.html',
@@ -11,19 +13,19 @@ export class PersonasCrudComponent implements OnInit {
   current_person:Persona;
   crud_operation={is_new:false,is_visible:false};
  
-  constructor() { }
+  constructor(private service: PersonaService) { }
 
   ngOnInit() {
   	this.data= JSON.parse(localStorage.getItem('personas')||'[]');
   	this.current_person=new Persona();
   }
 
-  new() {
+new() {
     this.current_person = new Persona();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
-
+ 
   edit(row) {
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = false;
@@ -43,9 +45,10 @@ export class PersonasCrudComponent implements OnInit {
     if (this.crud_operation.is_new) {
       this.data.push(this.current_person);
     }
-    localStorage.setItem('phones', JSON.stringify(this.data));
+    this.service.save(this.data);
     this.current_person = new Persona();
     this.crud_operation.is_visible = false;
   }
+
 }
 
