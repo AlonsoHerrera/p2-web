@@ -29,13 +29,19 @@
   </div>
 </div>
 
-<div class="form-inline" *ngIf="crud_operation.is_visible">
+<div class="panel panel-default" *ngIf="crud_operation2.is_visible">
 <app-crud-estado-tarea></app-crud-estado-tarea>
+</div>
+
+<div class="panel panel-default" *ngIf="crud_operation.is_visible">
+<app-tareas-crud></app-tareas-crud>
 </div>
 
 <div>
   <button class="btn btn-success" (click)="newState()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Estado</button>
+    <button class="btn btn-danger" (click)="crud_operation2.is_visible= false"><i class="fa fa-close" aria-hidden="true"></i></button>
 
-
-    <button class="btn btn-success" routerLink="/tareas"><i class="fa fa-plus" aria-hidden="true"> Agregar Tarea</i></button>
+    <button class="btn btn-success" (click)="newTask()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Tarea</button>
+    <button class="btn btn-danger" (click)="crud_operation.is_visible= false"><i class="fa fa-close" aria-hidden="true"></i></button>
+    
 </div>

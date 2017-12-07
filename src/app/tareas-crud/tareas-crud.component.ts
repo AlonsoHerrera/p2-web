@@ -46,7 +46,6 @@ export class TareasCrudComponent implements OnInit {
     }
     this.service.save(this.data);
     this.current_task = new Tarea();
-    this.current_project.estadosTareas.push(this.current_task)
     this.crud_operation.is_visible = false;
   }
 }

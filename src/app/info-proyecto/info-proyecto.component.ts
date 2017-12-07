@@ -12,6 +12,8 @@ export class InfoProyectoComponent implements OnInit {
   proyecto: Proyecto;
   private sub: any;
   crud_operation = { is_visible: false };
+  crud_operation2 = { is_visible: false };
+
   constructor(private route: ActivatedRoute, private service: ProyectoService) { }
 
   ngOnInit() {
@@ -23,8 +25,18 @@ export class InfoProyectoComponent implements OnInit {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-newState(){
-    this.crud_operation.is_visible = true;
-}
 
+newState(){
+    if(this.crud_operation.is_visible==true){
+     this.crud_operation.is_visible=false;
+  }
+      this.crud_operation2.is_visible = true;
+}
+newTask(){
+  if(this.crud_operation2.is_visible==true){
+     this.crud_operation2.is_visible=false;
+  }
+   this.crud_operation.is_visible = true; 
+  }
+}
 }
