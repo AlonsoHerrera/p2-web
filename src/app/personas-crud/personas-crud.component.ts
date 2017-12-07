@@ -49,6 +49,6 @@ new() {
     this.current_person = new Persona();
     this.crud_operation.is_visible = false;
   }
-
+ 
 }
 

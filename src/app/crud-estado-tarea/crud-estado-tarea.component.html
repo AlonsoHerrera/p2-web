@@ -1,16 +1,11 @@
-<legend>Proyectos</legend>
-<div class="form-group" *ngIf="crud_operation.is_visible">
+<legend>Estados de las Tareas</legend>
+<div class="form-inline" *ngIf="crud_operation.is_visible">
   <label>Id:</label>
-  <input class="form-control" type="text" placeholder="####" [(ngModel)]="current_project.id">
-  <label>Nombre:</label>
-  <input class="form-control" type="text" placeholder="Los Patitos..." [(ngModel)]="current_project.nombre">
-  <label>Icono:</label>
-  <input class="form-control" type="text" placeholder="www.img.png" [(ngModel)]="current_project.icono">
-   <label>Fecha Inicio:</label>
-  <input class="form-control" type="text" placeholder="12/12/2011" [(ngModel)]="current_project.fecha_inicio">
-  <label>Numero trabajadores en el proyecto:</label>
-  <input class="form-control" type="text" placeholder="##" [(ngModel)]="current_project.numero_trabajadores">
-   
+  <input class="form-control" type="text" placeholder="#######" [(ngModel)]="current_task.id">
+  <label>Descripción:</label>
+  <input class="form-control" type="text" placeholder="..." [(ngModel)]="current_task.descripcion">
+  <label>Orden:</label>
+  <input class="form-control" type="text" placeholder="#" [(ngModel)]="current_task.orden">
   <button class="btn btn-primary"(click)="save()">
     <i class="fa fa-floppy-o" aria-hidden="true"></i>
     Guardar
@@ -22,11 +17,9 @@
 </div>
 <table class="table table-striped table-hover">
   <tr>
-    <th>id</th>
-    <th>Nombre</th>
-    <th>Icono</th>
-    <th>Fecha de Inicio</th>
-    <th>Numero de Trabajadores</th>
+    <th>Id</th>
+    <th>Descripción</th>
+    <th>Orden</th>
     <th class="text-right">
       <button class="btn btn-success" (click)="new()"><i class="fa fa-plus" aria-hidden="true"></i></button>
       <button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
@@ -34,17 +27,12 @@
   </tr>
   <tr *ngFor="let row of data">
     <td>{{row.id}}</td>
-    <td>{{row.nombre}}</td>
-    <td><a href="{{row.icono}}"><img src="{{row.icono}}" width="30" height="30"></a></td>
-    <td>{{row.fecha_inicio}}</td>
-    <td>{{row.numero_trabajadores}}</td>
+    <td>{{row.descripcion}}</td>
+    <td>{{row.orden}}</td>
     <td class="text-right">
       <div *ngIf="!row.confirm">
         <button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
         <button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
-        <a class="btn btn-info" [routerLink]="['/proyectos/', row.nombre]">
-          <i class="fa fa-eye" aria-hidden="true"></i>
-        </a>      
       </div>
       <div *ngIf="row.confirm">
         <button class="btn btn-danger" (click)="row.confirm = false">Cancelar</button>
@@ -53,6 +41,6 @@
     </td>
   </tr>
   <tr *ngIf="data.length == 0">
-    <td colspan="4" class="text-center">Datos no disponibles.</td>
+    <td colspan="4" class="text-center">Datos no disponibles</td>
   </tr>
 </table>

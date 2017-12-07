@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Tarea } from '../tarea';
-import { TareaService } from '../tarea.service';
+import { EstadoTarea } from '../estado-tarea';
+import { EstadoTareaService } from '../estado-tarea.service';
 import { Proyecto } from '../proyecto';
- 
 @Component({
-  selector: 'app-tareas-crud',
-  templateUrl: './tareas-crud.component.html',
-  styleUrls: ['./tareas-crud.component.css']
+  selector: 'app-crud-estado-tarea',
+  templateUrl: './crud-estado-tarea.component.html',
+  styleUrls: ['./crud-estado-tarea.component.css']
 })
-export class TareasCrudComponent implements OnInit {
-  data: Tarea[];
+export class CrudEstadoTareaComponent implements OnInit {
+  data: EstadoTarea[];
   current_project:Proyecto;
-  current_task: Tarea;
+  current_task: EstadoTarea;
   crud_operation = { is_new: false, is_visible: false };
-  constructor(private service: TareaService) { }
+  constructor(private service: EstadoTareaService) { }
 
   ngOnInit() {
   	this.data = this.service.read();
-    this.current_task = new Tarea();
+    this.current_task = new EstadoTarea();
   }
  new() {
-    this.current_task = new Tarea();
+    this.current_task = new EstadoTarea();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
@@ -45,8 +44,7 @@ export class TareasCrudComponent implements OnInit {
       this.data.push(this.current_task);
     }
     this.service.save(this.data);
-    this.current_task = new Tarea();
-    this.current_project.estadosTareas.push(this.current_task)
+    this.current_task = new EstadoTarea();
     this.crud_operation.is_visible = false;
   }
 }

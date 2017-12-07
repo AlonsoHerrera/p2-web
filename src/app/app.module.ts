@@ -16,6 +16,10 @@ import { TareaService } from './tarea.service';
 import { InfoPersonaComponent } from './info-persona/info-persona.component';
 import { ReporteTareaProyectoComponent } from './reporte-tarea-proyecto/reporte-tarea-proyecto.component';
 import { InfoProyectoComponent } from './info-proyecto/info-proyecto.component';
+import { EstadoTareaService } from './estado-tarea.service';
+
+import { DragulaService, DragulaModule } from 'ng2-dragula';
+import { CrudEstadoTareaComponent } from './crud-estado-tarea/crud-estado-tarea.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +32,17 @@ import { InfoProyectoComponent } from './info-proyecto/info-proyecto.component';
     ReporteTareaPersonaComponent,
     InfoPersonaComponent,
     ReporteTareaProyectoComponent,
-    InfoProyectoComponent
+    InfoProyectoComponent,
+    CrudEstadoTareaComponent
       ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragulaModule
 
   ],
-  providers: [PersonaService,ProyectoService,TareaService],
+  providers: [PersonaService,ProyectoService,TareaService, DragulaService,EstadoTareaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
