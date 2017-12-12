@@ -1,25 +1,31 @@
-.container{
-    justify-content: center;
-    box-shadow: 0px 0px 10px #000;
-}
-.container2{
-    justify-content: center;
-    box-shadow: 0px 12px 10px #FFFF00;
-}
-#div2{
-    border-color: #FFFF00;
-    justify-content: center;
-    box-shadow: 0px 0px 10px #FFFF00;	
-}
 #divPrincipal{
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    height: 300px;
+    box-shadow: 0px 0px 10px #000;
     border-color: #00FF00;	
 	}
-	#divEstado{
-		 border-color:#00FFFF	;
+.container1{
+	
+	width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+    box-shadow: 0px 0px 10px #000;
+}
+#divEstado{
+    height: 100px;
+    width: 150px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+	border-color:#00FFFF;
     justify-content: center;
     box-shadow: 0px 0px 10px #00FFFF;	
 	}
+#divCampoTarea{
+	 height: 50px;
+    width: 100px;
+        box-shadow: 0px 0px 10px #000;	
+}
+
+
+	

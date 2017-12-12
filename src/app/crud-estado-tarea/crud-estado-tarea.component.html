@@ -46,25 +46,21 @@
   </tr>
 </table>
  
-<div id="divPrincipal">
-  <div class='wrapper'>
-    <div class='container'>
+
+
+  ---------------------------------------------------------
+
+
+
+    <div class='container1'>
       <tr *ngFor="let row of data">
-      <div id="divEstado" class='container' [dragula]='"first-bag"'>
-            
-            <td>{{row.id}}</td>
-            <td>{{row.descripcion}}</td>
-            <td>{{row.orden}}</td> 
-         
-      </div>
+      <div id="divEstado" class='container'>
+           <td>{{row.id}}-{{row.descripcion}}-{{row.orden}}</td> 
+           <div id="divCampoTarea" class='container' [dragula]='"first-bag"'>
+           </div>
+       </div>
       </tr> 
     </div>
 
 
-
-      <div class='container2' [dragula]='"first-bag"'>
-        <div id="div2">23</div>
-        <div  id="div2">23</div>
-      </div>
-    </div>
-  </div>
+    
