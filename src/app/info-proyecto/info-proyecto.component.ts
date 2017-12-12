@@ -39,4 +39,4 @@ newTask(){
    this.crud_operation.is_visible = true; 
   }
 }
-}
+

@@ -6,7 +6,7 @@
   <input class="form-control" type="text" placeholder="..." [(ngModel)]="current_task.descripcion">
   <label>Orden:</label>
   <input class="form-control" type="text" placeholder="#" [(ngModel)]="current_task.orden">
-  <button class="btn btn-primary"(click)="save()">
+  <button class="btn btn-primary"(click)="save()"(click)="saveProject()">
     <i class="fa fa-floppy-o" aria-hidden="true"></i>
     Guardar
   </button>
@@ -25,6 +25,7 @@
       <button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
     </th>
   </tr>
+
   <tr *ngFor="let row of data">
     <td>{{row.id}}</td>
     <td>{{row.descripcion}}</td>
@@ -44,3 +45,26 @@
     <td colspan="4" class="text-center">Datos no disponibles</td>
   </tr>
 </table>
+ 
+<div id="divPrincipal">
+  <div class='wrapper'>
+    <div class='container'>
+      <tr *ngFor="let row of data">
+      <div id="divEstado" class='container' [dragula]='"first-bag"'>
+            
+            <td>{{row.id}}</td>
+            <td>{{row.descripcion}}</td>
+            <td>{{row.orden}}</td> 
+         
+      </div>
+      </tr> 
+    </div>
+
+
+
+      <div class='container2' [dragula]='"first-bag"'>
+        <div id="div2">23</div>
+        <div  id="div2">23</div>
+      </div>
+    </div>
+  </div>
