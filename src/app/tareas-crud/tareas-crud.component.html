@@ -15,6 +15,10 @@
     Cancelar
   </button>
 </div> 
+
+
+
+
 <table class="table table-striped table-hover">
   <tr>
     <th>Id</th>
@@ -44,19 +48,3 @@
     <td colspan="4" class="text-center">Datos no disponibles</td>
   </tr>
 </table>
-  ---------------------------------------------------------
-
-
-
-    <div class='container1'>
-      <tr *ngFor="let row of data"> 
-        <div id="divCampoTarea" class='container' [dragula]='"first-bag"'>
-             <div id="divTarea" class='container'>
-         
-           <td>{{row.id}}-{{row.descripcion}}-{{row.orden}}</td> 
-       
-           </div>
-       </div>
-      </tr> 
-    </div>
-

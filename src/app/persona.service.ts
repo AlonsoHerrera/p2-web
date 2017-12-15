@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Persona } from './persona';
+import { Tarea } from './tarea';
 
 @Injectable()
 export class PersonaService {
@@ -18,7 +19,9 @@ export class PersonaService {
     localStorage.setItem('personas', JSON.stringify(this.data));
   }
 
+
   findByName(nombre: string) {
     return this.data.find(x => x.nombre === nombre)
   }
 }
+ 

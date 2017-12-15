@@ -7,6 +7,5 @@ export class Proyecto {
 	icono: string;
 	fecha_inicio: string;
 	numero_trabajadores: number ;
-	estadosTareas: EstadoTarea[];
 	tareas:Tarea[];
 }

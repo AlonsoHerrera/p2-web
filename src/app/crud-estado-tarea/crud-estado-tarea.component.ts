@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadoTarea } from '../estado-tarea';
 import { EstadoTareaService } from '../estado-tarea.service';
-import { Proyecto } from '../proyecto';
-import { ProyectoService } from '../proyecto.service';
 
 @Component({
   selector: 'app-crud-estado-tarea',
@@ -13,17 +11,11 @@ export class CrudEstadoTareaComponent implements OnInit {
   data: EstadoTarea[];
   current_task: EstadoTarea;
   crud_operation = { is_new: false, is_visible: false };
-
-   data2: Proyecto[];
-  current_project: Proyecto;
-  crud_operation2 = { is_new: false, is_visible: false };
-  constructor(private service: EstadoTareaService,private service2:ProyectoService) { }
+  constructor(private service: EstadoTareaService) { }
 
   ngOnInit() {
   	this.data = this.service.read();
-    this.data2 = this.service2.read();    
     this.current_task = new EstadoTarea();
-    this.current_project = new Proyecto();
   }
  new() {
     this.current_task = new EstadoTarea();
@@ -54,10 +46,6 @@ export class CrudEstadoTareaComponent implements OnInit {
     this.current_task = new EstadoTarea();
     this.crud_operation.is_visible = false;
   }
-    saveProject(){
-      this.current_project.estadosTareas.push(this.current_task);
-      this.data2.push(this.current_project);
-      this.service2.save(this.data2);
-    }
+
   
 } 

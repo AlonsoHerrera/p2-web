@@ -4,6 +4,6 @@ export class Persona {
 	id: string;
 	nombre: string;
 	avatar: string;	
-	tareas: Tarea[];
+	tareas: number=0;
 }
  
