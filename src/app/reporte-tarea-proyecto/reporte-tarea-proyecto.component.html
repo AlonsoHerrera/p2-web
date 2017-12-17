@@ -5,6 +5,7 @@
     <th>Icono</th>
     <th>Fecha de Inicio</th>
     <th>Numero de Trabajadores</th>
+    <th>Tareas</th>
   </tr>
   <tr *ngFor="let row of data">
     <td>{{row.id}}</td>
@@ -12,13 +13,7 @@
     <td><a href="{{row.icono}}"><img src="{{row.icono}}" width="30" height="30"></a></td>
     <td>{{row.fecha_inicio}}</td>
     <td>{{row.numero_trabajadores}}</td>
-    <td class="text-right">
-      <div *ngIf="!row.confirm">
-        <a class="btn btn-info" [routerLink]="['/proyectos/', row.nombre]">
-          <i class="fa fa-eye" aria-hidden="true"></i>
-        </a>
-      </div>
-    </td>
+    <td>{{row.tareas}}</td>
   </tr>
   <tr *ngIf="data.length == 0">
     <td colspan="4" class="text-center">Datos no disponibles.</td>
