@@ -8,5 +8,5 @@ export class Tarea {
 	estado:EstadoTarea;
     encargado:Persona;
     proyecto:Proyecto;
-
+    estadoTarea:EstadoTarea;
 }

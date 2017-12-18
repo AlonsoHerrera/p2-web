@@ -14,6 +14,7 @@ import { InfoProyectoComponent } from './info-proyecto/info-proyecto.component';
 import { CrudEstadoTareaComponent } from './crud-estado-tarea/crud-estado-tarea.component';
 import { DashboardEstadosComponent } from './dashboard-estados/dashboard-estados.component';
 import { DashboardTareasComponent } from './dashboard-tareas/dashboard-tareas.component';
+import { ReporteTareaEstadoComponent } from './reporte-tarea-estado/reporte-tarea-estado.component';
 
  
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'tareas', component: TareasCrudComponent },
   { path: 'reporteTareaPersona', component: ReporteTareaPersonaComponent },
   { path: 'reporteTareaProyecto', component: ReporteTareaProyectoComponent },
+  { path: 'reporteTareaEstado', component: ReporteTareaEstadoComponent },
   { path: 'dashboardEstados', component: DashboardEstadosComponent},
   { path: 'dashboardTareas', component: DashboardTareasComponent},
   { path: 'estadoTareas', component: CrudEstadoTareaComponent },    

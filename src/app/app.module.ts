@@ -22,6 +22,7 @@ import { DragulaService, DragulaModule } from 'ng2-dragula';
 import { CrudEstadoTareaComponent } from './crud-estado-tarea/crud-estado-tarea.component';
 import { DashboardEstadosComponent } from './dashboard-estados/dashboard-estados.component';
 import { DashboardTareasComponent } from './dashboard-tareas/dashboard-tareas.component';
+import { ReporteTareaEstadoComponent } from './reporte-tarea-estado/reporte-tarea-estado.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DashboardTareasComponent } from './dashboard-tareas/dashboard-tareas.co
     InfoProyectoComponent,
     CrudEstadoTareaComponent,
     DashboardEstadosComponent,
-    DashboardTareasComponent
+    DashboardTareasComponent,
+    ReporteTareaEstadoComponent
       ],
   imports: [
     BrowserModule,

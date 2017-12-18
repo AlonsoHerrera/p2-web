@@ -12,15 +12,6 @@ import { DragulaService } from 'ng2-dragula';
 export class DashboardComponent implements OnInit {
 	tareas: Tarea[];
     
- constructor(private dragulaService: DragulaService) {
-    dragulaService.drop.subscribe((value) => {
-      
-      alert(`drop: ${value[0]}`);
-    });
-
-
-  }
-
   ngOnInit() {
 
   }
