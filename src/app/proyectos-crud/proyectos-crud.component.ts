@@ -39,6 +39,12 @@ new() {
   }
 
   save() {
+    if ((this.current_project.id==null)||(this.current_project.nombre==null)||
+        (this.current_project.icono==null)||(this.current_project.fecha_inicio==null)||
+        (this.current_project.numero_trabajadores==null)) {
+        alert('Todos los datos son requeridos!');
+        return;
+    }
     if (this.crud_operation.is_new) {
       this.data.push(this.current_project);
     }

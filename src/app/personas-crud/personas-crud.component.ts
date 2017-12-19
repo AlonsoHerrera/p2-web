@@ -42,6 +42,11 @@ new() {
   }
 
   save() {
+     if ((this.current_person.id==null)||(this.current_person.nombre==null)||
+        (this.current_person.avatar==null)) {
+        alert('Todos los datos son requeridos!');
+        return;
+    }
     if (this.crud_operation.is_new) {
       this.data.push(this.current_person);
     }
