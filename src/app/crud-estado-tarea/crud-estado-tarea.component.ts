@@ -35,10 +35,10 @@ export class CrudEstadoTareaComponent implements OnInit {
     if (index > -1) {
       this.data.splice(index, 1);
     }
-    this.save();
+    this.save2();
   }
 
-  save() {
+  save2() {
     if (this.crud_operation.is_new) {
       this.data.push(this.current_task);
     }
@@ -46,6 +46,17 @@ export class CrudEstadoTareaComponent implements OnInit {
     this.current_task = new EstadoTarea();
     this.crud_operation.is_visible = false;
   }
-
-  
+  save() {
+    if ((this.current_task.id==null)||(this.current_task.descripcion==null)||
+        (this.current_task.orden==null)) {
+        alert('Todos los datos son requeridos!');
+        return;
+    }
+    if (this.crud_operation.is_new) {
+      this.data.push(this.current_task);
+    }
+    this.service.save(this.data);
+    this.current_task = new EstadoTarea();
+    this.crud_operation.is_visible = false;
+  }
 } 

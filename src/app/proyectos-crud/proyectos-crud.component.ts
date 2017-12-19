@@ -35,9 +35,18 @@ new() {
     if (index > -1) {
       this.data.splice(index, 1);
     }
-    this.save();
+    this.save2();
   }
 
+  save2() {
+
+    if (this.crud_operation.is_new) {
+      this.data.push(this.current_project);
+    }
+    this.service.save(this.data);
+    this.current_project = new Proyecto();
+    this.crud_operation.is_visible = false;
+  }
   save() {
     if ((this.current_project.id==null)||(this.current_project.nombre==null)||
         (this.current_project.icono==null)||(this.current_project.fecha_inicio==null)||

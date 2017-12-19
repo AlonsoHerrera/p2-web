@@ -38,10 +38,18 @@ new() {
     if (index > -1) {
       this.data.splice(index, 1);
     }
-    this.save();
+    this.save2();
   }
 
-  save() {
+  save2() {
+    if (this.crud_operation.is_new) {
+      this.data.push(this.current_person);
+    }
+    this.service.save(this.data);
+    this.current_person = new Persona();
+    this.crud_operation.is_visible = false;
+  }
+   save() {
      if ((this.current_person.id==null)||(this.current_person.nombre==null)||
         (this.current_person.avatar==null)) {
         alert('Todos los datos son requeridos!');
@@ -54,6 +62,5 @@ new() {
     this.current_person = new Persona();
     this.crud_operation.is_visible = false;
   }
- 
 }
 
