@@ -7,6 +7,6 @@ export class Tarea {
 	descripcion:string;
 	estado:EstadoTarea;
     encargado:Persona;
-    proyecto:Proyecto;
+    proyecto:string;
     estadoTarea:EstadoTarea;
 }
